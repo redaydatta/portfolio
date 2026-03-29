@@ -11,7 +11,7 @@ htmlElement.setAttribute('data-theme', currentTheme);
 themeToggle.addEventListener('click', () => {
     const theme = htmlElement.getAttribute('data-theme');
     const newTheme = theme === 'dark' ? 'light' : 'dark';
-    
+
     htmlElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
 });
@@ -30,16 +30,16 @@ navLinks.forEach(link => {
             e.preventDefault();
             const targetId = href.substring(1);
             const targetSection = document.getElementById(targetId);
-            
+
             if (targetSection) {
                 const navHeight = document.querySelector('.navbar').offsetHeight;
                 const targetPosition = targetSection.offsetTop - navHeight;
-                
+
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
                 });
-                
+
                 // Close mobile menu if open
                 const navbarCollapse = document.querySelector('.navbar-collapse');
                 if (navbarCollapse.classList.contains('show')) {
@@ -53,12 +53,12 @@ navLinks.forEach(link => {
 // Update active nav link on scroll
 function updateActiveNavLink() {
     const scrollPosition = window.scrollY + 100;
-    
+
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.offsetHeight;
         const sectionId = section.getAttribute('id');
-        
+
         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
             navLinks.forEach(link => {
                 link.classList.remove('active');
@@ -77,11 +77,9 @@ window.addEventListener('scroll', updateActiveNavLink);
 // ===================================
 const typedTextElement = document.getElementById('typedText');
 const texts = [
-    'Web Developer',
-    'Software Engineer',
-    'Full Stack Developer',
-    'Problem Solver',
-    'Tech Enthusiast'
+    'Web & Software Developer',
+    'Programmer',
+    'Software Engineer at SSL Wireless'
 ];
 
 let textIndex = 0;
@@ -91,7 +89,7 @@ let typingSpeed = 150;
 
 function typeText() {
     const currentText = texts[textIndex];
-    
+
     if (isDeleting) {
         typedTextElement.textContent = currentText.substring(0, charIndex - 1);
         charIndex--;
@@ -101,7 +99,7 @@ function typeText() {
         charIndex++;
         typingSpeed = 150;
     }
-    
+
     if (!isDeleting && charIndex === currentText.length) {
         // Pause at end of text
         typingSpeed = 2000;
@@ -111,7 +109,7 @@ function typeText() {
         textIndex = (textIndex + 1) % texts.length;
         typingSpeed = 500;
     }
-    
+
     setTimeout(typeText, typingSpeed);
 }
 
@@ -130,7 +128,7 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('aos-animate');
-            
+
             // Animate skill bars when skills section is visible
             if (entry.target.closest('#skills')) {
                 animateSkillBars();
@@ -150,20 +148,20 @@ let skillsAnimated = false;
 
 function animateSkillBars() {
     if (skillsAnimated) return;
-    
+
     const skillBars = document.querySelectorAll('.skill-progress');
-    
+
     skillBars.forEach(bar => {
         const progress = bar.getAttribute('data-progress');
         bar.style.setProperty('--progress-width', progress + '%');
-        
+
         // Add animate class to trigger animation
         setTimeout(() => {
             bar.parentElement.parentElement.classList.add('animate');
             bar.style.width = progress + '%';
         }, 100);
     });
-    
+
     skillsAnimated = true;
 }
 
@@ -175,7 +173,7 @@ let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
+
     if (currentScroll > 100) {
         navbar.style.padding = '0.5rem 0';
         navbar.style.boxShadow = '0 4px 30px var(--shadow)';
@@ -183,7 +181,7 @@ window.addEventListener('scroll', () => {
         navbar.style.padding = '1rem 0';
         navbar.style.boxShadow = '0 2px 20px var(--shadow)';
     }
-    
+
     lastScroll = currentScroll;
 });
 
@@ -194,23 +192,23 @@ const contactForm = document.getElementById('contactForm');
 
 contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    
+
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const subject = document.getElementById('subject').value;
     const message = document.getElementById('message').value;
-    
+
     // Basic validation
     if (!name || !email || !subject || !message) {
         showNotification('Please fill in all fields', 'error');
         return;
     }
-    
+
     if (!isValidEmail(email)) {
         showNotification('Please enter a valid email address', 'error');
         return;
     }
-    
+
     // Here you would typically send the form data to a server
     // For now, we'll just show a success message
     showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
@@ -230,7 +228,7 @@ function showNotification(message, type) {
         <i class="bi bi-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
         <span>${message}</span>
     `;
-    
+
     // Add styles
     notification.style.cssText = `
         position: fixed;
@@ -248,9 +246,9 @@ function showNotification(message, type) {
         z-index: 9999;
         animation: slideInRight 0.3s ease;
     `;
-    
+
     document.body.appendChild(notification);
-    
+
     // Remove after 5 seconds
     setTimeout(() => {
         notification.style.animation = 'slideOutRight 0.3s ease';
@@ -292,7 +290,7 @@ document.head.appendChild(style);
 // ===================================
 const profileImg = document.getElementById('profileImg');
 
-profileImg.addEventListener('error', function() {
+profileImg.addEventListener('error', function () {
     // If image fails to load, create a gradient placeholder
     this.style.display = 'none';
     const placeholder = document.createElement('div');
@@ -318,7 +316,7 @@ profileImg.addEventListener('error', function() {
 const projectImages = document.querySelectorAll('.project-image img');
 
 projectImages.forEach((img, index) => {
-    img.addEventListener('error', function() {
+    img.addEventListener('error', function () {
         // Create gradient placeholder for project images
         const placeholder = document.createElement('div');
         placeholder.style.cssText = `
@@ -344,7 +342,7 @@ projectImages.forEach((img, index) => {
 const aboutImage = document.querySelector('.about-img-wrapper img');
 
 if (aboutImage) {
-    aboutImage.addEventListener('error', function() {
+    aboutImage.addEventListener('error', function () {
         const placeholder = document.createElement('div');
         placeholder.style.cssText = `
             width: 100%;
@@ -415,12 +413,12 @@ scrollTopBtn.addEventListener('click', () => {
     });
 });
 
-scrollTopBtn.addEventListener('mouseenter', function() {
+scrollTopBtn.addEventListener('mouseenter', function () {
     this.style.transform = 'translateY(-5px) scale(1.1)';
     this.style.boxShadow = '0 8px 25px var(--glow)';
 });
 
-scrollTopBtn.addEventListener('mouseleave', function() {
+scrollTopBtn.addEventListener('mouseleave', function () {
     this.style.transform = 'translateY(0) scale(1)';
     this.style.boxShadow = '0 4px 15px var(--shadow)';
 });

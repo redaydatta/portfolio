@@ -238,7 +238,7 @@ h6 {
 }
 
 .navbar-toggler {
-    border: 2px solid var(--accent-primary);
+    /* border: 2px solid var(--accent-primary); */
     padding: 0.5rem;
 }
 
@@ -506,7 +506,7 @@ h6 {
     border-radius: 50%;
     padding: 8px;
     background: var(--accent-gradient);
-    animation: rotate 10s linear infinite;
+    /* animation: rotate 10s linear infinite; */
 }
 
 @keyframes rotate {
@@ -1210,6 +1210,7 @@ h6 {
     border-color: var(--accent-primary);
     box-shadow: 0 0 0 3px var(--glow);
     background: var(--bg-card);
+    color: var(--text-primary);
 }
 
 .form-control::placeholder {
@@ -1310,6 +1311,16 @@ textarea.form-control {
 /* ===================================
    Responsive Design
    =================================== */
+@media (max-width: 1400px) {
+    .hero-title {
+        font-size: 2.9rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.6rem;
+    }
+}
+
 @media (max-width: 991px) {
     .hero-title {
         font-size: 2.5rem;
@@ -1322,7 +1333,7 @@ textarea.form-control {
     .profile-container {
         width: 300px;
         height: 300px;
-        margin: 0 auto 3rem;
+        margin: 2rem auto;
     }
 
     .about-content {
@@ -1375,10 +1386,10 @@ textarea.form-control {
         width: 100%;
     }
 
-    .profile-container {
+    /* .profile-container {
         width: 250px;
         height: 250px;
-    }
+    } */
 
     .floating-badge {
         width: 50px;
@@ -1413,10 +1424,10 @@ textarea.form-control {
         font-size: 1rem;
     }
 
-    .profile-container {
+    /* .profile-container {
         width: 200px;
         height: 200px;
-    }
+    } */
 
     .experience-badge {
         padding: 1.5rem;
