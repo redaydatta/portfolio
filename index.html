@@ -520,16 +520,17 @@
             </div>
 
             <div class="row g-4">
+                <!-- Project 1 -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up">
-                    <div class="project-card">
+                    <div class="project-card" data-project="1">
                         <div class="project-image">
                             <img src="images/project1.jpg" alt="E-Commerce Platform">
                             <div class="project-overlay">
-                                <a href="#" class="project-link">
+                                <button class="project-view-btn" data-project="1" aria-label="View project details">
                                     <i class="bi bi-eye"></i>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <i class="bi bi-github"></i>
+                                </button>
+                                <a href="#" class="project-url-btn" aria-label="Visit project">
+                                    <i class="bi bi-link-45deg"></i>
                                 </a>
                             </div>
                         </div>
@@ -548,16 +549,17 @@
                     </div>
                 </div>
 
+                <!-- Project 2 -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="project-card">
+                    <div class="project-card" data-project="2">
                         <div class="project-image">
                             <img src="images/project2.jpg" alt="Task Management App">
                             <div class="project-overlay">
-                                <a href="#" class="project-link">
+                                <button class="project-view-btn" data-project="2" aria-label="View project details">
                                     <i class="bi bi-eye"></i>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <i class="bi bi-github"></i>
+                                </button>
+                                <a href="#" class="project-url-btn" aria-label="Visit project">
+                                    <i class="bi bi-link-45deg"></i>
                                 </a>
                             </div>
                         </div>
@@ -576,16 +578,17 @@
                     </div>
                 </div>
 
+                <!-- Project 3 -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-card">
+                    <div class="project-card" data-project="3">
                         <div class="project-image">
-                            <img src="images/project3.jpg" alt="Portfolio Website">
+                            <img src="images/project3.jpg" alt="Corporate Website">
                             <div class="project-overlay">
-                                <a href="#" class="project-link">
+                                <button class="project-view-btn" data-project="3" aria-label="View project details">
                                     <i class="bi bi-eye"></i>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <i class="bi bi-github"></i>
+                                </button>
+                                <a href="#" class="project-url-btn" aria-label="Visit project">
+                                    <i class="bi bi-link-45deg"></i>
                                 </a>
                             </div>
                         </div>
@@ -604,16 +607,17 @@
                     </div>
                 </div>
 
+                <!-- Project 4 -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="project-card">
+                    <div class="project-card" data-project="4">
                         <div class="project-image">
                             <img src="images/project4.jpg" alt="API Service">
                             <div class="project-overlay">
-                                <a href="#" class="project-link">
+                                <button class="project-view-btn" data-project="4" aria-label="View project details">
                                     <i class="bi bi-eye"></i>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <i class="bi bi-github"></i>
+                                </button>
+                                <a href="#" class="project-url-btn" aria-label="Visit project">
+                                    <i class="bi bi-link-45deg"></i>
                                 </a>
                             </div>
                         </div>
@@ -632,16 +636,17 @@
                     </div>
                 </div>
 
+                <!-- Project 5 -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="project-card">
+                    <div class="project-card" data-project="5">
                         <div class="project-image">
-                            <img src="images/project5.jpg" alt="Dashboard">
+                            <img src="images/project5.jpg" alt="Analytics Dashboard">
                             <div class="project-overlay">
-                                <a href="#" class="project-link">
+                                <button class="project-view-btn" data-project="5" aria-label="View project details">
                                     <i class="bi bi-eye"></i>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <i class="bi bi-github"></i>
+                                </button>
+                                <a href="#" class="project-url-btn" aria-label="Visit project">
+                                    <i class="bi bi-link-45deg"></i>
                                 </a>
                             </div>
                         </div>
@@ -660,16 +665,17 @@
                     </div>
                 </div>
 
+                <!-- Project 6 -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                    <div class="project-card">
+                    <div class="project-card" data-project="6">
                         <div class="project-image">
-                            <img src="images/project6.jpg" alt="Mobile App">
+                            <img src="images/project6.jpg" alt="Social Media App">
                             <div class="project-overlay">
-                                <a href="#" class="project-link">
+                                <button class="project-view-btn" data-project="6" aria-label="View project details">
                                     <i class="bi bi-eye"></i>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <i class="bi bi-github"></i>
+                                </button>
+                                <a href="#" class="project-url-btn" aria-label="Visit project">
+                                    <i class="bi bi-link-45deg"></i>
                                 </a>
                             </div>
                         </div>
@@ -795,6 +801,41 @@
             </div>
         </div>
     </section>
+
+    <!-- Project Details Modal -->
+    <div class="project-modal-backdrop" id="projectModalBackdrop" role="dialog" aria-modal="true"
+        aria-labelledby="projectModalTitle">
+        <div class="project-modal">
+            <button class="project-modal-close" id="projectModalClose" aria-label="Close modal">
+                <i class="bi bi-x-lg"></i>
+            </button>
+
+            <div class="project-modal-body">
+                <div class="project-modal-image-wrap">
+                    <img src="" alt="" id="projectModalImage" class="project-modal-img">
+                    <div class="project-modal-img-overlay"></div>
+                    <div class="project-modal-badge" id="projectModalCategory"></div>
+                </div>
+
+                <div class="project-modal-info">
+                    <h2 class="project-modal-title" id="projectModalTitle"></h2>
+                    <p class="project-modal-desc" id="projectModalDesc"></p>
+
+                    <div class="project-modal-section">
+                        <h5 class="project-modal-section-title"><i class="bi bi-cpu"></i> Technologies Used</h5>
+                        <div class="project-modal-tags" id="projectModalTags"></div>
+                    </div>
+
+                    <div class="project-modal-section">
+                        <h5 class="project-modal-section-title"><i class="bi bi-list-check"></i> Key Features</h5>
+                        <ul class="project-modal-features" id="projectModalFeatures"></ul>
+                    </div>
+
+                    <div class="project-modal-actions" id="projectModalActions"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">

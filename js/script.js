@@ -429,3 +429,189 @@ scrollTopBtn.addEventListener('mouseleave', function () {
 console.log('%c👋 Hello Developer!', 'color: #00d4aa; font-size: 20px; font-weight: bold;');
 console.log('%cLooking for something? Feel free to reach out!', 'color: #6366f1; font-size: 14px;');
 console.log('%c📧 reday.datta@example.com', 'color: #00ffc6; font-size: 12px;');
+
+// ===================================
+// Project Modal
+// ===================================
+const projectsData = {
+    1: {
+        title: 'E-Commerce Platform',
+        category: 'Web Application',
+        image: 'images/project1.jpg',
+        description: 'A full-featured e-commerce platform built with Laravel and MySQL, featuring a seamless shopping experience with secure payment gateway integration (Stripe & PayPal), real-time inventory management, order tracking, and a powerful admin dashboard with analytics.',
+        tags: ['Laravel', 'MySQL', 'Bootstrap', 'Stripe API', 'Redis', 'Vue.js'],
+        features: [
+            'Multi-vendor product catalog with search & filtering',
+            'Secure payment integration (Stripe & PayPal)',
+            'Real-time inventory & order management system',
+            'Admin dashboard with sales analytics & charts',
+            'Customer review & rating system',
+            'Email notification & invoice generation',
+        ],
+        liveUrl: '#',
+        githubUrl: '#',
+    },
+    2: {
+        title: 'Task Management App',
+        category: 'Productivity Tool',
+        image: 'images/project2.jpg',
+        description: 'A real-time collaborative task management application built with React and Node.js. Teams can create boards, assign tasks, track progress with Kanban-style workflows, and communicate through in-app messaging — all synced live via WebSockets.',
+        tags: ['React', 'Node.js', 'MongoDB', 'Socket.io', 'JWT', 'Tailwind CSS'],
+        features: [
+            'Kanban-style drag-and-drop task boards',
+            'Real-time collaboration with WebSocket sync',
+            'Team member roles and permission management',
+            'Progress tracking with visual Gantt charts',
+            'In-app messaging and file attachments',
+            'Email & push notification system',
+        ],
+        liveUrl: '#',
+        githubUrl: '#',
+    },
+    3: {
+        title: 'Corporate Website',
+        category: 'CMS & Web',
+        image: 'images/project3.jpg',
+        description: 'A modern, SEO-optimized corporate website built on WordPress with a fully custom theme. Features a blogging engine, dynamic contact forms with CRM integration, multi-language support, and a bespoke page builder for the marketing team.',
+        tags: ['WordPress', 'PHP', 'JavaScript', 'MySQL', 'SEO', 'WooCommerce'],
+        features: [
+            'Fully custom WordPress theme from scratch',
+            'Headless CMS with REST API integration',
+            'Multi-language support with WPML',
+            'Advanced SEO with schema markup',
+            'Dynamic contact forms with CRM sync',
+            'Performance-optimized (95+ Lighthouse score)',
+        ],
+        liveUrl: '#',
+        githubUrl: '#',
+    },
+    4: {
+        title: 'RESTful API Service',
+        category: 'Backend / API',
+        image: 'images/project4.jpg',
+        description: 'A scalable, production-grade RESTful API built with Express.js and PostgreSQL. Implements JWT-based authentication, role-based access control, rate limiting, and auto-generated Swagger documentation for seamless third-party integrations.',
+        tags: ['Express.js', 'PostgreSQL', 'JWT', 'Swagger', 'Docker', 'Redis'],
+        features: [
+            'JWT authentication with refresh token rotation',
+            'Role-based access control (RBAC)',
+            'Intelligent rate limiting & request throttling',
+            'Auto-generated Swagger / OpenAPI documentation',
+            'Docker containerization with CI/CD pipeline',
+            'Comprehensive logging with Winston & Morgan',
+        ],
+        liveUrl: '#',
+        githubUrl: '#',
+    },
+    5: {
+        title: 'Analytics Dashboard',
+        category: 'Data Visualization',
+        image: 'images/project5.jpg',
+        description: 'An interactive analytics dashboard built with Vue.js and Chart.js that visualizes real-time business data from multiple API sources. Features customizable widgets, exportable reports, and configurable alert thresholds for key metrics.',
+        tags: ['Vue.js', 'Chart.js', 'API', 'Vuex', 'D3.js', 'WebSocket'],
+        features: [
+            'Real-time data visualization with live updates',
+            'Drag-and-drop customizable widget layout',
+            'Multi-source API data aggregation',
+            'Exportable PDF & CSV reports',
+            'Configurable alert thresholds & email alerts',
+            'Historical data comparison & trend analysis',
+        ],
+        liveUrl: '#',
+        githubUrl: '#',
+    },
+    6: {
+        title: 'Social Media App',
+        category: 'Mobile Application',
+        image: 'images/project6.jpg',
+        description: 'A cross-platform social networking app built with React Native and Firebase. Users can create profiles, share posts with media, react and comment in real time, follow other users, and receive push notifications — all powered by a serverless backend.',
+        tags: ['React Native', 'Firebase', 'Redux', 'Expo', 'Push Notifications', 'Cloud Functions'],
+        features: [
+            'User authentication with social login (Google, Facebook)',
+            'Real-time posts, likes, and comment feeds',
+            'Image & video upload with cloud storage',
+            'Follow / follower system with activity feed',
+            'Push notifications via Firebase Cloud Messaging',
+            'In-app messaging with end-to-end encryption',
+        ],
+        liveUrl: '#',
+        githubUrl: '#',
+    },
+};
+
+const modalBackdrop = document.getElementById('projectModalBackdrop');
+const modalClose = document.getElementById('projectModalClose');
+
+function openProjectModal(projectId) {
+    const data = projectsData[projectId];
+    if (!data) return;
+
+    // Populate image
+    const img = document.getElementById('projectModalImage');
+    img.src = data.image;
+    img.alt = data.title;
+
+    // Set a fallback colour if image fails
+    img.onerror = function () {
+        this.style.display = 'none';
+        this.parentElement.style.background = 'var(--accent-gradient)';
+    };
+
+    // Badge / category
+    document.getElementById('projectModalCategory').textContent = data.category;
+
+    // Title & description
+    document.getElementById('projectModalTitle').textContent = data.title;
+    document.getElementById('projectModalDesc').textContent = data.description;
+
+    // Tags
+    const tagsEl = document.getElementById('projectModalTags');
+    tagsEl.innerHTML = data.tags.map(t => `<span class="tag">${t}</span>`).join('');
+
+    // Features
+    const featuresEl = document.getElementById('projectModalFeatures');
+    featuresEl.innerHTML = data.features.map(f => `<li>${f}</li>`).join('');
+
+    // Action buttons
+    const actionsEl = document.getElementById('projectModalActions');
+    actionsEl.innerHTML = `
+        <a href="${data.liveUrl}" target="_blank" rel="noopener" class="btn btn-gradient" id="modalLiveBtn">
+            <i class="bi bi-box-arrow-up-right me-2"></i>Live Demo
+        </a>
+        <a href="${data.githubUrl}" target="_blank" rel="noopener" class="btn btn-outline" id="modalGithubBtn">
+            <i class="bi bi-github me-2"></i>View Code
+        </a>
+    `;
+
+    // Show modal
+    modalBackdrop.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeProjectModal() {
+    modalBackdrop.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Attach listeners to every view button
+document.querySelectorAll('.project-view-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const projectId = btn.getAttribute('data-project');
+        openProjectModal(projectId);
+    });
+});
+
+// Close on X button
+modalClose.addEventListener('click', closeProjectModal);
+
+// Close on backdrop click (outside modal box)
+modalBackdrop.addEventListener('click', (e) => {
+    if (e.target === modalBackdrop) closeProjectModal();
+});
+
+// Close on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalBackdrop.classList.contains('active')) {
+        closeProjectModal();
+    }
+});
