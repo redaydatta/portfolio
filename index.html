@@ -516,7 +516,7 @@
         <div class="container">
             <div class="section-header text-center" data-aos="fade-up">
                 <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
-                <p class="section-subtitle">Some of my recent work</p>
+                <p class="section-subtitle">Some of my worked projects</p>
             </div>
 
             <div class="row g-4">
@@ -524,7 +524,7 @@
                 <div class="col-lg-4 col-md-6" data-aos="fade-up">
                     <div class="project-card" data-project="1">
                         <div class="project-image">
-                            <img src="images/project1.jpg" alt="E-Commerce Platform">
+                            <img src="images/easy-merchant/thumbnail.jpg" alt="Easy Merchant App">
                             <div class="project-overlay">
                                 <button class="project-view-btn" data-project="1" aria-label="View project details">
                                     <i class="bi bi-eye"></i>
@@ -535,15 +535,16 @@
                             </div>
                         </div>
                         <div class="project-content">
-                            <h3 class="project-title">E-Commerce Platform</h3>
+                            <h3 class="project-title">Easy Merchant App</h3>
                             <p class="project-description">
                                 A full-featured e-commerce platform with payment integration,
                                 inventory management, and admin dashboard.
                             </p>
                             <div class="project-tags">
+                                <span class="tag">PHP</span>
                                 <span class="tag">Laravel</span>
                                 <span class="tag">MySQL</span>
-                                <span class="tag">Bootstrap</span>
+                                <span class="tag">RESTful API</span>
                             </div>
                         </div>
                     </div>
@@ -803,39 +804,301 @@
     </section>
 
     <!-- Project Details Modal -->
-    <div class="project-modal-backdrop" id="projectModalBackdrop" role="dialog" aria-modal="true"
-        aria-labelledby="projectModalTitle">
+    <div class="project-modal-backdrop" id="projectModalBackdrop" role="dialog" aria-modal="true" aria-label="Project Details">
         <div class="project-modal">
             <button class="project-modal-close" id="projectModalClose" aria-label="Close modal">
                 <i class="bi bi-x-lg"></i>
             </button>
-
-            <div class="project-modal-body">
-                <div class="project-modal-image-wrap">
-                    <img src="" alt="" id="projectModalImage" class="project-modal-img">
-                    <div class="project-modal-img-overlay"></div>
-                    <div class="project-modal-badge" id="projectModalCategory"></div>
-                </div>
-
-                <div class="project-modal-info">
-                    <h2 class="project-modal-title" id="projectModalTitle"></h2>
-                    <p class="project-modal-desc" id="projectModalDesc"></p>
-
-                    <div class="project-modal-section">
-                        <h5 class="project-modal-section-title"><i class="bi bi-cpu"></i> Technologies Used</h5>
-                        <div class="project-modal-tags" id="projectModalTags"></div>
-                    </div>
-
-                    <div class="project-modal-section">
-                        <h5 class="project-modal-section-title"><i class="bi bi-list-check"></i> Key Features</h5>
-                        <ul class="project-modal-features" id="projectModalFeatures"></ul>
-                    </div>
-
-                    <div class="project-modal-actions" id="projectModalActions"></div>
-                </div>
-            </div>
+            <div class="project-modal-body" id="projectModalBody"></div>
         </div>
     </div>
+
+    <!-- =============================================
+         Project Modal Templates (hidden, no server needed)
+         To edit a project: find its <template> below
+         ============================================= -->
+
+    <!-- Project 1: Easy Merchant App -->
+    <template id="modal-tpl-1">
+        <div class="project-modal-image-wrap">
+            <img src="images/project1.jpg" alt="Easy Merchant App" class="project-modal-img">
+            <div class="project-modal-img-overlay"></div>
+            <div class="project-modal-badge">Web Application</div>
+        </div>
+        <div class="project-modal-info">
+            <h2 class="project-modal-title">Easy Merchant App</h2>
+            <p class="project-modal-desc">
+                A full-featured e-commerce platform built with Laravel and MySQL, featuring a seamless
+                shopping experience with secure payment gateway integration (Stripe &amp; PayPal),
+                real-time inventory management, order tracking, and a powerful admin dashboard with analytics.
+            </p>
+            <div class="project-modal-section">
+                <h5 class="project-modal-section-title"><i class="bi bi-cpu"></i> Technologies Used</h5>
+                <div class="project-modal-tags">
+                    <span class="tag">Laravel</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">Bootstrap</span>
+                    <span class="tag">Stripe API</span>
+                    <span class="tag">Redis</span>
+                    <span class="tag">Vue.js</span>
+                </div>
+            </div>
+            <div class="project-modal-section">
+                <h5 class="project-modal-section-title"><i class="bi bi-list-check"></i> Key Features</h5>
+                <ul class="project-modal-features">
+                    <li>Multi-vendor product catalog with search &amp; filtering</li>
+                    <li>Secure payment integration (Stripe &amp; PayPal)</li>
+                    <li>Real-time inventory &amp; order management system</li>
+                    <li>Admin dashboard with sales analytics &amp; charts</li>
+                    <li>Customer review &amp; rating system</li>
+                    <li>Email notification &amp; invoice generation</li>
+                </ul>
+            </div>
+            <div class="project-modal-actions">
+                <a href="#" target="_blank" rel="noopener" class="btn btn-gradient">
+                    <i class="bi bi-box-arrow-up-right me-2"></i>Live Demo
+                </a>
+                <a href="#" target="_blank" rel="noopener" class="btn btn-outline">
+                    <i class="bi bi-github me-2"></i>View Code
+                </a>
+            </div>
+        </div>
+    </template>
+
+    <!-- Project 2: Task Management App -->
+    <template id="modal-tpl-2">
+        <div class="project-modal-image-wrap">
+            <img src="images/project2.jpg" alt="Task Management App" class="project-modal-img">
+            <div class="project-modal-img-overlay"></div>
+            <div class="project-modal-badge">Productivity Tool</div>
+        </div>
+        <div class="project-modal-info">
+            <h2 class="project-modal-title">Task Management App</h2>
+            <p class="project-modal-desc">
+                A real-time collaborative task management application built with React and Node.js.
+                Teams can create boards, assign tasks, track progress with Kanban-style workflows,
+                and communicate through in-app messaging — all synced live via WebSockets.
+            </p>
+            <div class="project-modal-section">
+                <h5 class="project-modal-section-title"><i class="bi bi-cpu"></i> Technologies Used</h5>
+                <div class="project-modal-tags">
+                    <span class="tag">React</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">MongoDB</span>
+                    <span class="tag">Socket.io</span>
+                    <span class="tag">JWT</span>
+                    <span class="tag">Tailwind CSS</span>
+                </div>
+            </div>
+            <div class="project-modal-section">
+                <h5 class="project-modal-section-title"><i class="bi bi-list-check"></i> Key Features</h5>
+                <ul class="project-modal-features">
+                    <li>Kanban-style drag-and-drop task boards</li>
+                    <li>Real-time collaboration with WebSocket sync</li>
+                    <li>Team member roles and permission management</li>
+                    <li>Progress tracking with visual Gantt charts</li>
+                    <li>In-app messaging and file attachments</li>
+                    <li>Email &amp; push notification system</li>
+                </ul>
+            </div>
+            <div class="project-modal-actions">
+                <a href="#" target="_blank" rel="noopener" class="btn btn-gradient">
+                    <i class="bi bi-box-arrow-up-right me-2"></i>Live Demo
+                </a>
+                <a href="#" target="_blank" rel="noopener" class="btn btn-outline">
+                    <i class="bi bi-github me-2"></i>View Code
+                </a>
+            </div>
+        </div>
+    </template>
+
+    <!-- Project 3: Corporate Website -->
+    <template id="modal-tpl-3">
+        <div class="project-modal-image-wrap">
+            <img src="images/project3.jpg" alt="Corporate Website" class="project-modal-img">
+            <div class="project-modal-img-overlay"></div>
+            <div class="project-modal-badge">CMS &amp; Web</div>
+        </div>
+        <div class="project-modal-info">
+            <h2 class="project-modal-title">Corporate Website</h2>
+            <p class="project-modal-desc">
+                A modern, SEO-optimized corporate website built on WordPress with a fully custom theme.
+                Features a blogging engine, dynamic contact forms with CRM integration,
+                multi-language support, and a bespoke page builder for the marketing team.
+            </p>
+            <div class="project-modal-section">
+                <h5 class="project-modal-section-title"><i class="bi bi-cpu"></i> Technologies Used</h5>
+                <div class="project-modal-tags">
+                    <span class="tag">WordPress</span>
+                    <span class="tag">PHP</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">SEO</span>
+                    <span class="tag">WooCommerce</span>
+                </div>
+            </div>
+            <div class="project-modal-section">
+                <h5 class="project-modal-section-title"><i class="bi bi-list-check"></i> Key Features</h5>
+                <ul class="project-modal-features">
+                    <li>Fully custom WordPress theme from scratch</li>
+                    <li>Headless CMS with REST API integration</li>
+                    <li>Multi-language support with WPML</li>
+                    <li>Advanced SEO with schema markup</li>
+                    <li>Dynamic contact forms with CRM sync</li>
+                    <li>Performance-optimized (95+ Lighthouse score)</li>
+                </ul>
+            </div>
+            <div class="project-modal-actions">
+                <a href="#" target="_blank" rel="noopener" class="btn btn-gradient">
+                    <i class="bi bi-box-arrow-up-right me-2"></i>Live Demo
+                </a>
+                <a href="#" target="_blank" rel="noopener" class="btn btn-outline">
+                    <i class="bi bi-github me-2"></i>View Code
+                </a>
+            </div>
+        </div>
+    </template>
+
+    <!-- Project 4: RESTful API Service -->
+    <template id="modal-tpl-4">
+        <div class="project-modal-image-wrap">
+            <img src="images/project4.jpg" alt="RESTful API Service" class="project-modal-img">
+            <div class="project-modal-img-overlay"></div>
+            <div class="project-modal-badge">Backend / API</div>
+        </div>
+        <div class="project-modal-info">
+            <h2 class="project-modal-title">RESTful API Service</h2>
+            <p class="project-modal-desc">
+                A scalable, production-grade RESTful API built with Express.js and PostgreSQL.
+                Implements JWT-based authentication, role-based access control, rate limiting,
+                and auto-generated Swagger documentation for seamless third-party integrations.
+            </p>
+            <div class="project-modal-section">
+                <h5 class="project-modal-section-title"><i class="bi bi-cpu"></i> Technologies Used</h5>
+                <div class="project-modal-tags">
+                    <span class="tag">Express.js</span>
+                    <span class="tag">PostgreSQL</span>
+                    <span class="tag">JWT</span>
+                    <span class="tag">Swagger</span>
+                    <span class="tag">Docker</span>
+                    <span class="tag">Redis</span>
+                </div>
+            </div>
+            <div class="project-modal-section">
+                <h5 class="project-modal-section-title"><i class="bi bi-list-check"></i> Key Features</h5>
+                <ul class="project-modal-features">
+                    <li>JWT authentication with refresh token rotation</li>
+                    <li>Role-based access control (RBAC)</li>
+                    <li>Intelligent rate limiting &amp; request throttling</li>
+                    <li>Auto-generated Swagger / OpenAPI documentation</li>
+                    <li>Docker containerization with CI/CD pipeline</li>
+                    <li>Comprehensive logging with Winston &amp; Morgan</li>
+                </ul>
+            </div>
+            <div class="project-modal-actions">
+                <a href="#" target="_blank" rel="noopener" class="btn btn-gradient">
+                    <i class="bi bi-box-arrow-up-right me-2"></i>Live Demo
+                </a>
+                <a href="#" target="_blank" rel="noopener" class="btn btn-outline">
+                    <i class="bi bi-github me-2"></i>View Code
+                </a>
+            </div>
+        </div>
+    </template>
+
+    <!-- Project 5: Analytics Dashboard -->
+    <template id="modal-tpl-5">
+        <div class="project-modal-image-wrap">
+            <img src="images/project5.jpg" alt="Analytics Dashboard" class="project-modal-img">
+            <div class="project-modal-img-overlay"></div>
+            <div class="project-modal-badge">Data Visualization</div>
+        </div>
+        <div class="project-modal-info">
+            <h2 class="project-modal-title">Analytics Dashboard</h2>
+            <p class="project-modal-desc">
+                An interactive analytics dashboard built with Vue.js and Chart.js that visualizes
+                real-time business data from multiple API sources. Features customizable widgets,
+                exportable reports, and configurable alert thresholds for key metrics.
+            </p>
+            <div class="project-modal-section">
+                <h5 class="project-modal-section-title"><i class="bi bi-cpu"></i> Technologies Used</h5>
+                <div class="project-modal-tags">
+                    <span class="tag">Vue.js</span>
+                    <span class="tag">Chart.js</span>
+                    <span class="tag">API</span>
+                    <span class="tag">Vuex</span>
+                    <span class="tag">D3.js</span>
+                    <span class="tag">WebSocket</span>
+                </div>
+            </div>
+            <div class="project-modal-section">
+                <h5 class="project-modal-section-title"><i class="bi bi-list-check"></i> Key Features</h5>
+                <ul class="project-modal-features">
+                    <li>Real-time data visualization with live updates</li>
+                    <li>Drag-and-drop customizable widget layout</li>
+                    <li>Multi-source API data aggregation</li>
+                    <li>Exportable PDF &amp; CSV reports</li>
+                    <li>Configurable alert thresholds &amp; email alerts</li>
+                    <li>Historical data comparison &amp; trend analysis</li>
+                </ul>
+            </div>
+            <div class="project-modal-actions">
+                <a href="#" target="_blank" rel="noopener" class="btn btn-gradient">
+                    <i class="bi bi-box-arrow-up-right me-2"></i>Live Demo
+                </a>
+                <a href="#" target="_blank" rel="noopener" class="btn btn-outline">
+                    <i class="bi bi-github me-2"></i>View Code
+                </a>
+            </div>
+        </div>
+    </template>
+
+    <!-- Project 6: Social Media App -->
+    <template id="modal-tpl-6">
+        <div class="project-modal-image-wrap">
+            <img src="images/project6.jpg" alt="Social Media App" class="project-modal-img">
+            <div class="project-modal-img-overlay"></div>
+            <div class="project-modal-badge">Mobile Application</div>
+        </div>
+        <div class="project-modal-info">
+            <h2 class="project-modal-title">Social Media App</h2>
+            <p class="project-modal-desc">
+                A cross-platform social networking app built with React Native and Firebase.
+                Users can create profiles, share posts with media, react and comment in real time,
+                follow other users, and receive push notifications — all powered by a serverless backend.
+            </p>
+            <div class="project-modal-section">
+                <h5 class="project-modal-section-title"><i class="bi bi-cpu"></i> Technologies Used</h5>
+                <div class="project-modal-tags">
+                    <span class="tag">React Native</span>
+                    <span class="tag">Firebase</span>
+                    <span class="tag">Redux</span>
+                    <span class="tag">Expo</span>
+                    <span class="tag">Push Notifications</span>
+                    <span class="tag">Cloud Functions</span>
+                </div>
+            </div>
+            <div class="project-modal-section">
+                <h5 class="project-modal-section-title"><i class="bi bi-list-check"></i> Key Features</h5>
+                <ul class="project-modal-features">
+                    <li>User authentication with social login (Google, Facebook)</li>
+                    <li>Real-time posts, likes, and comment feeds</li>
+                    <li>Image &amp; video upload with cloud storage</li>
+                    <li>Follow / follower system with activity feed</li>
+                    <li>Push notifications via Firebase Cloud Messaging</li>
+                    <li>In-app messaging with end-to-end encryption</li>
+                </ul>
+            </div>
+            <div class="project-modal-actions">
+                <a href="#" target="_blank" rel="noopener" class="btn btn-gradient">
+                    <i class="bi bi-box-arrow-up-right me-2"></i>Live Demo
+                </a>
+                <a href="#" target="_blank" rel="noopener" class="btn btn-outline">
+                    <i class="bi bi-github me-2"></i>View Code
+                </a>
+            </div>
+        </div>
+    </template>
 
     <!-- Footer -->
     <footer class="footer">
