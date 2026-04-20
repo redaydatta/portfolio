@@ -1229,14 +1229,13 @@ h6 {
     border-radius: 24px;
     max-width: 900px;
     width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
+    height: 85vh;
+    max-height: 620px;
+    overflow: hidden;
     position: relative;
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--border-color);
     transform: scale(0.88) translateY(40px);
     transition: transform 0.4s cubic-bezier(.34,1.56,.64,1);
-    scrollbar-width: thin;
-    scrollbar-color: var(--accent-primary) transparent;
 }
 
 .project-modal-backdrop.active .project-modal {
@@ -1280,13 +1279,13 @@ h6 {
 .project-modal-body {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    height: 100%;
 }
 
 .project-modal-image-wrap {
     position: relative;
     overflow: hidden;
     border-radius: 24px 0 0 24px;
-    min-height: 350px;
 }
 
 .project-modal-img {
@@ -1327,6 +1326,9 @@ h6 {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-primary) transparent;
 }
 
 .project-modal-title {
@@ -1418,12 +1420,17 @@ h6 {
 }
 
 @media (max-width: 768px) {
+    .project-modal {
+        height: 90vh;
+        max-height: 90vh;
+    }
     .project-modal-body {
         grid-template-columns: 1fr;
+        grid-template-rows: 220px 1fr;
+        height: 100%;
     }
     .project-modal-image-wrap {
         border-radius: 24px 24px 0 0;
-        min-height: 220px;
     }
     .project-modal-info {
         padding: 1.5rem;
